@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 function Navigation () {
     return (
         <div className="nav">
-            <a href=""> Inicio</a>
-            <a href=""> Produtos</a>
-            <a href=""> Carrinho</a>
+            <Link to="/">Inicio</Link>
+            <Link to="/products">Produtos</Link>
+            <Link to="/cart">Carrinho</Link>
         </div>
     )
 }
