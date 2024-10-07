@@ -1,0 +1,14 @@
+.nav{
+    background-color: #DD7230;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 75px;
+    
+}
+
+.link{
+    font-size: 28px;
+    text-decoration: none;
+    color: #FFFCF9;
+}
