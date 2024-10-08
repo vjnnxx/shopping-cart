@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import Card from '../Card/Card';
 import './Products.css';
 
 function Products ({products}) {
@@ -6,13 +7,7 @@ function Products ({products}) {
     const productsArray = products.map((element) =>{
 
         return (
-        <>
-            <>
-                <img src={element.image} alt={element.title} className='card-image'/>
-                <p>{element.title}</p>
-                <p>Preço: {element.price}</p>
-            </>
-        </>
+            <Card key={element.id} product={element}/>
         )
     });
 
@@ -21,11 +16,9 @@ function Products ({products}) {
     
 
     return (
-        <>
-            <h1>Estes são os produtos</h1>
-
+        <div className='product-grid'>
             {productsArray}
-        </>
+        </div>
     )
 }
 

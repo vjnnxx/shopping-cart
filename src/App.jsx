@@ -1,9 +1,9 @@
-import Home from "./Home/Home";
 import Navigation from "./Navigation/Navigation";
 import { useParams } from "react-router-dom";
 import Products from "./Products/Products";
 import Cart from "./Cart/Cart";
 import { useEffect, useState } from "react";
+import './App.css';
 
 function App () {
 
@@ -26,15 +26,15 @@ function App () {
   return (
     <>
       <Navigation/>
-      <h2>Loja legal :))</h2>
 
-      { section === 'products' ? (
-        <Products products={products}/>
-      ) : section === 'cart' ? (
-        <Cart/>
-      ): (
-        <Home/>
-      )}
+      <div className="main">
+        { section === 'products' ? (
+          <Products products={products}/>
+        ) :  (
+          <Cart/>
+        )}
+      </div>
+
     </>
   )
 }
