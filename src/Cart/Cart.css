@@ -1,0 +1,8 @@
+/* .cart{
+    display: flex;
+} */
+
+.cart-item{
+    display: flex;
+    border: 1px solid black;
+}

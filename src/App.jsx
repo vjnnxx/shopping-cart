@@ -10,6 +10,7 @@ function App () {
   const {section} = useParams();
 
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(()=>{
 
@@ -23,15 +24,46 @@ function App () {
     
   },[]);
 
+
+  function addToCart(product){
+
+    const productIds = cart.map((el) => el.id);
+
+    let newCart = [];
+
+    if (productIds.includes(product.id)){
+      newCart = cart.map((element)=>{
+        if (element.id === product.id){
+          const aux = element;
+          aux.quantity = aux.quantity + 1;
+          return aux
+          
+          // return ({...element, quantity: element.quantity++})
+        } else {
+          return element
+        }
+      });
+    } else {  
+      if (product.quantity == null){
+        product.quantity = 1;
+      }
+      
+      newCart = [...cart, product];
+    }
+    
+    setCart(newCart);
+    console.log(cart)
+  }
+
   return (
     <>
       <Navigation/>
 
       <div className="main">
-        { section === 'products' ? (
-          <Products products={products}/>
+        { section === 'cart' ? (
+          <Cart cart={cart}/>
         ) :  (
-          <Cart/>
+          <Products products={products} cartHandler={addToCart}/>
         )}
       </div>
 
