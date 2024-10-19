@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import './Cart.css'
 
+function Cart ({cart, total}) {
 
-function Cart ({cart}) {
 
     const productList = cart.map((product)=>{
         return (
@@ -29,9 +29,16 @@ function Cart ({cart}) {
             {cart.length == 0 ? (
                 <h2>Carrinho está vazio</h2>
             ) : (
-                <div className="cart">
-                    {productList}
-                </div>
+                <>
+                    <div className="cart">
+                        {productList}
+                    </div>
+
+                    <div>
+                        <h2>total = {total.toFixed(2)}</h2>
+                    </div>
+                </>
+                
             )}
 
             
@@ -42,6 +49,7 @@ function Cart ({cart}) {
 
 Cart.propTypes = {
     cart: PropTypes.array,
+    total: PropTypes.number,
 }
 
 

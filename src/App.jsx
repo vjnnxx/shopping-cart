@@ -11,6 +11,7 @@ function App () {
 
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
 
   useEffect(()=>{
 
@@ -23,6 +24,17 @@ function App () {
     fetchData();
     
   },[]);
+
+  
+
+  // useEffect(()=>{
+  //     cart.forEach(product => {
+          
+  //     });
+
+  //     console.log(total)
+  // }, [cart]);
+
 
 
   function addToCart(product){
@@ -37,8 +49,6 @@ function App () {
           const aux = element;
           aux.quantity = aux.quantity + 1;
           return aux
-          
-          // return ({...element, quantity: element.quantity++})
         } else {
           return element
         }
@@ -50,9 +60,10 @@ function App () {
       
       newCart = [...cart, product];
     }
+
+    setTotal(parseFloat(total) + parseFloat(product.price));
     
     setCart(newCart);
-    console.log(cart)
   }
 
   return (
@@ -61,7 +72,7 @@ function App () {
 
       <div className="main">
         { section === 'cart' ? (
-          <Cart cart={cart}/>
+          <Cart cart={cart} total={total}/>
         ) :  (
           <Products products={products} cartHandler={addToCart}/>
         )}
