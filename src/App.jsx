@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Products from "./Products/Products";
 import Cart from "./Cart/Cart";
 import { useEffect, useState } from "react";
+import { Drawer } from '@mui/material';
 import './App.css';
 
 function App () {
@@ -12,6 +13,7 @@ function App () {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(()=>{
 
@@ -25,16 +27,13 @@ function App () {
     
   },[]);
 
-  
+  function toggleDrawer() {
+    setIsOpen(!isOpen);
+  }
 
-  // useEffect(()=>{
-  //     cart.forEach(product => {
-          
-  //     });
-
-  //     console.log(total)
-  // }, [cart]);
-
+  function closeDrawer(){
+    setIsOpen(false);
+  }
 
 
   function addToCart(product){
@@ -68,15 +67,28 @@ function App () {
 
   return (
     <>
-      <Navigation/>
+    <Drawer 
+          open={isOpen} 
+          onClose={closeDrawer}
+          anchor="right"
+          classes={{width: '500px'}}
+    >
+          <Cart cart={cart} total={total}/>
+      </Drawer>
+      <Navigation drawerHandler={toggleDrawer}/>
+      
+      
+
 
       <div className="main">
-        { section === 'cart' ? (
-          <Cart cart={cart} total={total}/>
-        ) :  (
+        { section === 'products' ? (
           <Products products={products} cartHandler={addToCart}/>
+        ) :  (
+          <h1>HOME</h1>     
         )}
       </div>
+
+      
 
     </>
   )

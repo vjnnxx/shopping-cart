@@ -16,7 +16,7 @@ function Cart ({cart, total}) {
                     <p>{product.title}</p>
                     <p>R${parseFloat(product.price).toFixed(2)}</p>
                     <p>Quantidade: {product.quantity}</p>
-                    <p>Total: {parseFloat(product.price*product.quantity).toFixed(2)}</p>
+                    <p>Total: R${parseFloat(product.price*product.quantity).toFixed(2)}</p>
                 </div>
                 
             </div>
@@ -24,7 +24,7 @@ function Cart ({cart, total}) {
     });
 
     return (
-        <>
+        <div className='cart-drawer'>
 
             {cart.length == 0 ? (
                 <h2>Carrinho está vazio</h2>
@@ -35,7 +35,7 @@ function Cart ({cart, total}) {
                     </div>
 
                     <div>
-                        <h2>total = {total.toFixed(2)}</h2>
+                        <h2>total = R$ {total.toFixed(2)}</h2>
                     </div>
                 </>
                 
@@ -43,7 +43,7 @@ function Cart ({cart, total}) {
 
             
             
-        </>
+        </div>
     )
 }
 

@@ -1,10 +1,24 @@
-/* .cart{
-    display: flex;
-} */
-
 .cart-item{
     display: flex;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     margin: 8px;
+    width: 275px;
+}
+
+.product-image>img{
+    height: 50px;
+    width: 50px;
+}
+
+.product-content>p{
+    font-size: 14px;
+}
+
+.cart-drawer{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
