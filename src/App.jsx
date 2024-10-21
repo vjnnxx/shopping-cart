@@ -2,9 +2,11 @@ import Navigation from "./Navigation/Navigation";
 import { useParams } from "react-router-dom";
 import Products from "./Products/Products";
 import Cart from "./Cart/Cart";
+import Home from "./Home/Home";
 import { useEffect, useState } from "react";
 import { Drawer } from '@mui/material';
 import './App.css';
+
 
 function App () {
 
@@ -86,7 +88,7 @@ function App () {
         { section === 'products' ? (
           <Products products={products} cartHandler={addToCart}/>
         ) :  (
-          <h1>HOME</h1>     
+          <Home/>  
         )}
       </div>
 

@@ -9,4 +9,5 @@
     grid-template-columns: repeat(5, 200px);
     gap: 80px;
     width: 1445px;
+    margin-left: 100px;
 }

@@ -1,0 +1,30 @@
+.home{
+    display: flex;
+    gap: 32px;
+}
+
+.home-image{
+    width: 500px;
+}
+
+.home-text{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.home-text>p{
+    text-align: justify;
+}
+
+.button-div{
+    display: flex;
+    justify-content: center;
+}
+
+.go-shopping{
+    font-size: 28px;
+    padding: 16px;
+}
+

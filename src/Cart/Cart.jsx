@@ -15,7 +15,8 @@ function Cart ({cart, total}) {
                 <div className="product-content">
                     <p>{product.title}</p>
                     <p>R${parseFloat(product.price).toFixed(2)}</p>
-                    <p>Quantidade: {product.quantity}</p>
+                    <p>Quantidade: {product.quantity}</p> 
+                    {/* Adicionar botões pra aumentar ou diminiur a quantidade */}
                     <p>Total: R${parseFloat(product.price*product.quantity).toFixed(2)}</p>
                 </div>
                 
