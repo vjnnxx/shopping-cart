@@ -1,6 +1,5 @@
 .cart-item{
     display: flex;
-    border-top: 1px solid black;
     border-bottom: 1px solid black;
     margin: 8px;
     width: 275px;
@@ -22,3 +21,11 @@
     align-items: center;
 }
 
+.checkout{
+    display: flex;
+    flex-direction: column;
+}
+
+h2{
+    font-size: 16px;
+}

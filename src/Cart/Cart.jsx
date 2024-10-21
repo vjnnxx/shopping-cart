@@ -34,8 +34,9 @@ function Cart ({cart, total}) {
                         {productList}
                     </div>
 
-                    <div>
-                        <h2>total = R$ {total.toFixed(2)}</h2>
+                    <div className="checkout">
+                        <h2>subtotal: R$ {total.toFixed(2)}</h2>
+                        <button className='default-button'>Checkout</button>
                     </div>
                 </>
                 

@@ -6,22 +6,26 @@ import { mdiCart } from '@mdi/js';
 
 function Navigation ({drawerHandler}) {
     return (
-        <div className="nav">
-            <div className="left">
+        <nav className="nav">
+
+            <div className="nav-content">
+                <div className="left">
+                    
+                    <Link to="/products" className="link">PRODUTOS</Link>
+                </div>
                 
-                <Link to="/products" className="link">PRODUTOS</Link>
-            </div>
-            
-            <div className="title">
-                <Link to="/" className="link">VJNNXX STORE</Link>
+                <div className="title">
+                    <Link to="/" className="link">VJNNXX STORE</Link>
+                </div>
+
+                {/* <Link to="/cart" className="link">Carrinho</Link> */}
+                <button onClick={()=> drawerHandler()} className="cart-button">
+                    <Icon path={mdiCart} size={1} color="white"></Icon>
+                </button>
             </div>
 
-            {/* <Link to="/cart" className="link">Carrinho</Link> */}
-            <button onClick={()=> drawerHandler()} className="cart-button">
-                <Icon path={mdiCart} size={1} color="white"></Icon>
-            </button>
             
-        </div>
+        </nav>
     )
 }
 

@@ -14,7 +14,7 @@ function Card ({product, handleClick}) {
             <p className='product-title'>{product.title}</p>
             <p>$ {parseFloat(product.price).toFixed(2)}</p>
 
-            <button onClick={()=> addToCart(product)}>Adicionar ao carrinho</button>
+            <button onClick={()=> addToCart(product)} className='default-button'>Adicionar</button>
         </div>
     )
 }

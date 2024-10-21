@@ -1,8 +1,15 @@
 .nav{
     background-color: #DD7230;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: center;
+}
+
+.nav-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1445px;
     height: 75px;
 }
 
