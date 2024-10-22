@@ -6,6 +6,7 @@ import Home from "./Home/Home";
 import DefaultPage from "./DefaultPage";
 import { useEffect, useState } from "react";
 import { Drawer } from '@mui/material';
+import Toastify from 'toastify-js'
 import './App.css';
 
 
@@ -20,6 +21,7 @@ function App () {
 
   function emptyCart (){
     setCart([]);
+    setTotal(0);
   }
 
   useEffect(()=>{
@@ -70,6 +72,31 @@ function App () {
     setTotal(parseFloat(total) + parseFloat(product.price));
     
     setCart(newCart);
+
+
+    Toastify({
+
+      text: "Item adicionado ao carrinho!",
+      
+      duration: 1000,
+
+      style: {
+        backgroundColor: 'green',
+        width: '300px',
+        height: '50px',
+        position: 'fixed',
+        marginLeft: '75%',
+        marginTop: '75px',
+        opacity: 0.98,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '4px',
+        color: '#fff',
+      },  
+      }).showToast();
+
+    
   }
 
   return (
@@ -87,7 +114,7 @@ function App () {
       <div className="main">
         { section === 'products' ? (
           <Products products={products} cartHandler={addToCart}/>
-        ) : section === 'home' ?  (
+        ) : section === 'home' || section == null ?   (
           <Home/>  
         ) : (
           <DefaultPage/>

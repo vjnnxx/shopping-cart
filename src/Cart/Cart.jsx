@@ -3,7 +3,6 @@ import './Cart.css'
 
 function Cart ({cart, total, emptyCart}) {
 
-
     const productList = cart.map((product)=>{
         return (
             <div key={product.id} className='cart-item'>

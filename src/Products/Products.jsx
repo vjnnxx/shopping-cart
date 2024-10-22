@@ -7,7 +7,7 @@ function Products ({products, cartHandler}) {
     const productsArray = products.map((element) =>{
 
         return (
-            <Card key={element.id} product={element} handleClick={cartHandler}/>
+            <Card key={element.id} product={element} cartHandler={cartHandler}/>
         )
     });
 

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import './Card.css';
 
-function Card ({product, handleClick}) {
+function Card ({product, cartHandler}) {
 
     const addToCart = (product) =>{
-        handleClick(product);
+        cartHandler(product);
     }
 
 
@@ -21,7 +21,7 @@ function Card ({product, handleClick}) {
 
 Card.propTypes = {
     product: PropTypes.object,
-    handleClick: PropTypes.func,
+    cartHandler: PropTypes.func,
 }
 
 export default Card;
