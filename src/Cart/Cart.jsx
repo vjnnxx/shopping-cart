@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './Cart.css'
 
-function Cart ({cart, total}) {
+function Cart ({cart, total, emptyCart}) {
 
 
     const productList = cart.map((product)=>{
@@ -38,6 +38,7 @@ function Cart ({cart, total}) {
                     <div className="checkout">
                         <h2>subtotal: R$ {total.toFixed(2)}</h2>
                         <button className='default-button'>Checkout</button>
+                        <button className='default-button delete-button' onClick={() => emptyCart()}>Esvaziar carrinho</button>
                     </div>
                 </>
                 
@@ -52,6 +53,7 @@ function Cart ({cart, total}) {
 Cart.propTypes = {
     cart: PropTypes.array,
     total: PropTypes.number,
+    emptyCart: PropTypes.func,
 }
 
 

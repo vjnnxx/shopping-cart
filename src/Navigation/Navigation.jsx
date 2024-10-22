@@ -15,7 +15,7 @@ function Navigation ({drawerHandler}) {
                 </div>
                 
                 <div className="title">
-                    <Link to="/" className="link">VJNNXX STORE</Link>
+                    <Link to="/home" className="link">VJNNXX STORE</Link>
                 </div>
 
                 {/* <Link to="/cart" className="link">Carrinho</Link> */}

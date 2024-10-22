@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Products from "./Products/Products";
 import Cart from "./Cart/Cart";
 import Home from "./Home/Home";
+import DefaultPage from "./DefaultPage";
 import { useEffect, useState } from "react";
 import { Drawer } from '@mui/material';
 import './App.css';
@@ -16,6 +17,10 @@ function App () {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+
+  function emptyCart (){
+    setCart([]);
+  }
 
   useEffect(()=>{
 
@@ -75,21 +80,19 @@ function App () {
           anchor="right"
           classes={{width: '500px'}}
     >
-          <Cart cart={cart} total={total}/>
+          <Cart cart={cart} total={total} emptyCart={emptyCart}/>
       </Drawer>
       <Navigation drawerHandler={toggleDrawer}/>
-      
-
-      {/* AJEITAR A NOJEIRA QUE TA O ALINHAMENTO DA PÁGINA */}
-      
-
 
       <div className="main">
         { section === 'products' ? (
           <Products products={products} cartHandler={addToCart}/>
-        ) :  (
+        ) : section === 'home' ?  (
           <Home/>  
-        )}
+        ) : (
+          <DefaultPage/>
+        )  
+        }
       </div>
 
       
