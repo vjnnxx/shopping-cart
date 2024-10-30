@@ -1,7 +1,10 @@
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { CartContext } from '../App';
 import './Cart.css'
 
-function Cart ({cart, total, emptyCart}) {
+function Cart () {
+
+    const {cart, total, emptyCart} = useContext(CartContext);
 
     const productList = cart.map((product)=>{
         return (
@@ -48,12 +51,5 @@ function Cart ({cart, total, emptyCart}) {
         </div>
     )
 }
-
-Cart.propTypes = {
-    cart: PropTypes.array,
-    total: PropTypes.number,
-    emptyCart: PropTypes.func,
-}
-
 
 export default Cart;

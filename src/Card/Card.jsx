@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import './Card.css';
+import { useContext } from 'react';
+import { CartContext } from '../App';
 
-function Card ({product, cartHandler}) {
+function Card ({product}) {
 
-    const addToCart = (product) =>{
-        cartHandler(product);
-    }
-
+    const {addToCart} = useContext(CartContext);
 
     return(
         <div className='card'>
@@ -21,7 +20,6 @@ function Card ({product, cartHandler}) {
 
 Card.propTypes = {
     product: PropTypes.object,
-    cartHandler: PropTypes.func,
 }
 
 export default Card;

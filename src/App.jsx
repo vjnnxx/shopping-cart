@@ -4,10 +4,17 @@ import Products from "./Products/Products";
 import Cart from "./Cart/Cart";
 import Home from "./Home/Home";
 import DefaultPage from "./DefaultPage";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import { Drawer } from '@mui/material';
 import Toastify from 'toastify-js'
 import './App.css';
+
+export const CartContext = createContext({
+  cart: [],
+  total: 0,
+  emptyCart: () => {},
+  addToCart: () => {},
+});
 
 
 function App () {
@@ -18,6 +25,8 @@ function App () {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+
+
 
   function emptyCart (){
     setCart([]);
@@ -100,20 +109,21 @@ function App () {
   }
 
   return (
-    <>
-    <Drawer 
-          open={isOpen} 
-          onClose={closeDrawer}
-          anchor="right"
-          classes={{width: '500px'}}
-    >
-          <Cart cart={cart} total={total} emptyCart={emptyCart}/>
+    <CartContext.Provider value={{cart, total, emptyCart, addToCart, products}}>
+      <Drawer 
+            open={isOpen} 
+            onClose={closeDrawer}
+            anchor="right"
+            classes={{width: '500px'}}
+      >
+          <Cart/>
       </Drawer>
       <Navigation drawerHandler={toggleDrawer}/>
 
+      
       <div className="main">
         { section === 'products' ? (
-          <Products products={products} cartHandler={addToCart}/>
+          <Products/>
         ) : section === 'home' || section == null ?   (
           <Home/>  
         ) : (
@@ -124,7 +134,7 @@ function App () {
 
       
 
-    </>
+    </CartContext.Provider>
   )
 }
 

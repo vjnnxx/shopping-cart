@@ -1,13 +1,16 @@
-import PropTypes from 'prop-types';
 import Card from '../Card/Card';
+import { CartContext } from '../App';
 import './Products.css';
+import { useContext } from 'react';
 
-function Products ({products, cartHandler}) {
+function Products () {
+
+    const {products} = useContext(CartContext);
 
     const productsArray = products.map((element) =>{
 
         return (
-            <Card key={element.id} product={element} cartHandler={cartHandler}/>
+            <Card key={element.id} product={element}/>
         )
     });
 
@@ -16,11 +19,6 @@ function Products ({products, cartHandler}) {
             {productsArray}
         </div>
     )
-}
-
-Products.propTypes = {
-    products: PropTypes.array,
-    cartHandler: PropTypes.func,
 }
 
 export default Products;
